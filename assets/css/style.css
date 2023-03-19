@@ -1,0 +1,26 @@
+/* font-family: 'Montserrat', sans-serif;
+font-family: 'Open Sans', sans-serif; */
+
+header {
+    background: rgb(2,56,110);
+background: linear-gradient(90deg, rgba(2,56,110,1) 0%, rgba(0,38,77,1) 50%, rgba(0,23,45,1) 100%);
+color: white;
+text-shadow: 0 0 3px white;
+height: 75px;
+}
+
+aside {
+    width: 30%;
+}
+
+main {
+    width: 70%;
+}
+
+.summary :nth-child(1) {
+    line-height: 200%;
+}
+
+.full-width {
+    width: 100%;
+}

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&family=Open+Sans:wght@300;400&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <title>5 Day Forecast</title>
+  </head>
+  <body>
+    <header class="d-flex justify-content-center align-items-center">
+      <h1>Weather Dashboard</h1>
+    </header>
+    <!-- 30% Width Aside -->
+    <div class="d-flex mt-3 border m-1">
+      <aside class="m-1">
+        <div><h2>Search for a City:</h2></div>
+        <div>
+          <input
+            type="text"
+            placeholder="City Name, State Code, Country Code"
+            id="citySearch"
+            class="my-1 full-width"
+          /><br />
+          <button class="btn btn-primary my-1 full-width">Search</button>
+          <hr class="border-3" />
+        </div>
+        <div>Previous Searches</div>
+      </aside>
+      <!-- 70% Width Main -->
+      <main class="mx-4 p-1">
+        <section class="summary">
+          <div class="row">
+            <h2 id="cityName" class="m-0 p-0">City w/ emoji</h2>
+          </div>
+          <div class="row d-flex flex-nowrap align-items-center">
+            Temp: <span id="temp"></span>
+          </div>
+          <div class="row d-flex flex-nowrap align-items-center">
+            Wind: <span id="wind"></span>
+          </div>
+          <div class="row d-flex flex-nowrap align-items-center">
+            Humidity: <span id="humidity"></span>
+          </div>
+        </section>
+        <section>
+          <div class="row">
+            <h2 class="m-0 p-0">5 Day Forecast</h2>
+          </div>
+          <div class="5day d-flex">Tiles for 5 day Forecast</div>
+        </section>
+      </main>
+    </div>
+    <script src="./assets/js/script.js"></script>
+  </body>
+</html>
