@@ -30,20 +30,20 @@
         <div>
           <input
             type="text"
-            placeholder="City Name, State Code, Country Code"
+            placeholder="Please enter city name"
             id="citySearch"
             class="my-1 full-width"
           /><br />
           <button class="btn btn-primary my-1 full-width">Search</button>
           <hr class="border-3" />
         </div>
-        <div>Previous Searches</div>
+        <div id="prevSearches">Previous Searches</div>
       </aside>
       <!-- 70% Width Main -->
       <main class="mx-4 p-1">
         <section class="summary">
           <div class="row">
-            <h2 id="cityName" class="m-0 p-0">City w/ emoji</h2>
+            <h2 id="cityName" class="m-0 p-0"></h2>
           </div>
           <div class="row d-flex flex-nowrap align-items-center">
             Temp: <span id="temp"></span>
@@ -59,7 +59,7 @@
           <div class="row">
             <h2 class="m-0 p-0">5 Day Forecast</h2>
           </div>
-          <div class="5day d-flex">Tiles for 5 day Forecast</div>
+          <div id="5day" class="d-flex"></div>
         </section>
       </main>
     </div>
