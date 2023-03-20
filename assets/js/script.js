@@ -25,8 +25,6 @@ function queryAPI() {
     APIkey +
     "&units=imperial";
 
-  clearDay();
-
   fetch(queryURL)
     .then(function (response) {
       return response.json();
@@ -48,6 +46,7 @@ function queryAPI() {
       let key = city;
       let value = city;
       localStorage.setItem(key, value);
+      showRecent();
 
       cityName.innerHTML =
         data.name +
@@ -71,6 +70,8 @@ function fivedayForecast() {
     APIkey +
     "&units=imperial";
 
+  clearDay();
+
   fetch(fivedayQuery)
     .then(function (response) {
       return response.json();
@@ -90,10 +91,10 @@ function fivedayForecast() {
         createdCol.appendChild(createdDiv2);
         createdCol.appendChild(createdDiv3);
         createdCol.appendChild(createdDiv4);
-        createdCol.classList.add("col");
+        // createdCol.classList.add("col");
         createdCol.setAttribute(
           "style",
-          "background: #0052A2; color: white; margin: 1%; padding: 1%"
+          "background: #0052A2; color: white; padding: 1%; margin: 1%"
         );
 
         iconID = data.list[i].weather[0].icon;
@@ -123,6 +124,7 @@ function clearDay() {
 }
 
 function showRecent() {
+  ulEl.innerHTML = "";
   for (var i = 0; i < localStorage.length; i++) {
     let currCity = localStorage.getItem(localStorage.key(i));
     let liEl = document.createElement("li");
@@ -130,7 +132,7 @@ function showRecent() {
     ulEl.append(liEl);
     liEl.append(createbtnEl);
     liEl.style.cssText = "width:100%";
-    createbtnEl.style.cssText = "width:100%; margin: 1%";
+    createbtnEl.style.cssText = "width:100%; margin: 1% 0";
     createbtnEl.classList.add("requeryBtn");
     createbtnEl.textContent = currCity;
   }
