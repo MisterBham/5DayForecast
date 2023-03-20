@@ -19,7 +19,7 @@ ulEl.style.cssText = "list-style: none; width: 100%; padding: 0";
 function queryAPI() {
   city = inputEl.value;
   let queryURL =
-    "http://api.openweathermap.org/data/2.5/weather?q=" +
+    "https://api.openweathermap.org/data/2.5/weather?q=" +
     city +
     "&appid=" +
     APIkey +
