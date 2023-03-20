@@ -9,6 +9,7 @@ let prevSearches = document.getElementById("prevSearches");
 let fivedayEl = document.getElementById("5day");
 
 let city;
+let searchCity;
 
 let ulEl = document.createElement("ul");
 prevSearches.append(ulEl);
@@ -47,7 +48,6 @@ function queryAPI() {
       let key = city;
       let value = city;
       localStorage.setItem(key, value);
-      showRecent();
 
       cityName.innerHTML =
         data.name +
@@ -114,6 +114,7 @@ function fivedayForecast() {
         createdDiv4.innerHTML +=
           "Humidity: " + data.list[i].main.humidity + " %";
       }
+      inputEl.value = "";
     });
 }
 
@@ -122,13 +123,31 @@ function clearDay() {
 }
 
 function showRecent() {
-  let liEl = document.createElement("li");
-  let createbtnEl = document.createElement("button");
-  ulEl.append(liEl);
-  liEl.append(createbtnEl);
-  liEl.style.cssText = "width:100%";
-  createbtnEl.style.cssText = "width:100%; margin: 1%";
-  createbtnEl.textContent = city;
+  for (var i = 0; i < localStorage.length; i++) {
+    let currCity = localStorage.getItem(localStorage.key(i));
+    let liEl = document.createElement("li");
+    let createbtnEl = document.createElement("button");
+    ulEl.append(liEl);
+    liEl.append(createbtnEl);
+    liEl.style.cssText = "width:100%";
+    createbtnEl.style.cssText = "width:100%; margin: 1%";
+    createbtnEl.classList.add("requeryBtn");
+    createbtnEl.textContent = currCity;
+  }
+
+  // Setup eventlisteners on buttons for reQuery
+  let requeryBtns = document.querySelectorAll(".requeryBtn");
+  for (var i = 0; i < requeryBtns.length; i++) {
+    requeryBtns[i].addEventListener("click", reQuery);
+  }
 }
+
+function reQuery() {
+  searchCity = this.textContent;
+  inputEl.value = searchCity;
+  queryAPI();
+}
+
+showRecent();
 
 btnEl.addEventListener("click", queryAPI);
